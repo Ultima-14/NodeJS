@@ -27,8 +27,10 @@
 
 ## Инструменты
 
-### Back-end:  
--React  
+### Front  
+-React 
+
+### Back:   
 -MySQL  
 -WebSocket  
 -aws  
