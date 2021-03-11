@@ -1,0 +1,5 @@
+!/bin/bash
+
+doxygen Doxyfile
+git add docs/
+git commit -m "Update documentation ($(date +%F@%R))"
