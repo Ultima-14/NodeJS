@@ -4,12 +4,13 @@
         "node": true,
         "jest": true
     },
-    "plugins": [
-        "prettier"
-    ],
+    
     "extends": [
         "metarhia",
-        "plugin:prettier/recommended"
+        "plugin:prettier/recommended",
+        "sonarlint",
+        "eslint:recommended"
+        
     ],
     "rules": {
         "prettier/prettier": "error",
