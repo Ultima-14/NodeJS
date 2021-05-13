@@ -1,18 +1,10 @@
 {
-    "root": true,
-    "env": {
-        "node": true,
-        "jest": true
-    },
-    "plugins": [
-        "prettier"
-    ],
-    "extends": [
-        "metarhia",
-        "plugin:prettier/recommended"
-    ],
-    "rules": {
-        "prettier/prettier": "error",
-        "camelcase": 0
-    }
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "semi": true,
+    "printWidth": 80,
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "endOfLine": "auto"
 }
