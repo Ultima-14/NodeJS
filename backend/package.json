@@ -4,6 +4,8 @@
   "description": "",
   "main": "App.js",
   "scripts": {
+    "start": "node app.js",
+    "dev" : "nodemon app.js",
     "test": "jest",
     "lint": "eslint src/",
     "lint:write": "eslint --fix src/",
@@ -18,6 +20,19 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.7",
     "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-passport": "^4.1.4",
+    "koa-router": "^10.0.0",
+    "mongoose": "^5.12.10",
+    "mongoose-private-paths": "^0.7.0",
+    "passport-jwt": "^4.0.0"
   }
 }
