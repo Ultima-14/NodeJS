@@ -32,6 +32,6 @@
 -React 
 
 ### Back:   
--MySQL  
--WebSocket  
+-Mongodb
+-Koa 
 -aws  
