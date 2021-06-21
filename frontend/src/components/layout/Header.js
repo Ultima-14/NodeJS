@@ -14,26 +14,32 @@ const Header = ({ logout, auth: { isAuthenticated, user } }) => {
   let links
   if (isAuthenticated) {
     links = (
-      
       <li className="nav-item dropdown">
-        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <a
+          className="nav-link"
+          href="#"
+          role="button"
+          onClick={() => setIsExpanded(prev => !prev)}
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
           <i className="fa fa-user"></i>
           Account
         </a>
-        
-        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-          <Link className="dropdown-item" to={'/user/' + user.id}>My Profile</Link>
-          <div className="dropdown-divider"></div>
-          <a
-            className="dropdown-item"
-            href="#"
-            onClick={onLogout}
-          >Log Out</a>
-        </div>
-        
+        {isExpanded ? (
+          <div aria-labelledby="navbarDropdown">
+            <Link className="dropdown-item" to={'/user/' + user.id}>
+              My Profile
+            </Link>
+            <div className="dropdown-divider"></div>
+            <a className="dropdown-item" href="#" onClick={onLogout}>
+              Log Out
+            </a>
+          </div>
+        ) : null}
       </li>
-      
-    )
+    );
+  
   } else {
     links = (
       <React.Fragment>
