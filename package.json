@@ -4,14 +4,39 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint:frontend": "workdir С/node/frontend && yarn lint && yarn format:check",
-    "lint:backend": "workdir C/node/backend && yarn lint && yarn format:check"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "lint:frontend": " npm run lint frontend && npm run lint:fix frontend",
+    "lint:backend": "npm run lint backend && npm lint:fix backend",
+    "dev:server": "npm start --prefix backend",
+    "dev:client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "test": "mocha"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^7.27.0",
     "husky": "^5.1.3",
     "lint-staged": "^10.5.4"
   },
+  "dependencies": {
+    "concurrently": "^6.2.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "mocha": "^9.0.1",
+    "nodemon": "^2.0.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix src/",
+      "npm run lint:fix",
+      "git add"
+    ]
+  }
 }
