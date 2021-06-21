@@ -2,5 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
 yarn lint:frontend && yarn lint:backend
-cd frontend && yarn test
-cd ../backend && yarn test
+cd frontend && npm run test
+cd ../backend && npm run test
