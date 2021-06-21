@@ -9,8 +9,12 @@ router.post('/', passport.authenticate('jwt', { session: false }), async ctx => 
   const user = ctx.state.user._id
   const post = await new Post({ body, user })
 
+     try {
     ctx.body = await new Post({ body, user }).save();
     ctx.status = 201
+  } catch (err) {
+    ctx.throw(404, 'DocumentNotFoundError')
+  }
   
     
 });
