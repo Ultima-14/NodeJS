@@ -1,6 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn lint:frontend && yarn lint:backend
+npm lint:frontend && npm lint:backend
 cd frontend && npm run test
 cd ../backend && npm run test
