@@ -1,22 +1,22 @@
 /* eslint-disable */
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const subscriptionSchema = new Schema({
   subscriber: {
     type: Schema.Types.ObjectId,
     ref: 'users',
-    required: true
+    required: true,
   },
   profile: {
     type: Schema.Types.ObjectId,
     ref: 'users',
-    required: true
+    required: true,
   },
   createdDate: {
     type: Date,
-    default: Date.now
-  }
-})
+    default: Date.now,
+  },
+});
 
-module.exports = mongoose.model('subscriptions', subscriptionSchema)
+module.exports = mongoose.model('subscriptions', subscriptionSchema);
