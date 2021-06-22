@@ -8,7 +8,7 @@ import Posts from '../shared/Posts'
 
 const AllPosts = ({ auth }) => (
   <div className="row mt-4">
-    <div className="col-md-6 mx-auto">
+    <div className="col-md-0 mx-auto">
       {auth.isAuthenticated && <PostForm />}
       <Posts queryParams={{}} />
     </div>
