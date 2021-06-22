@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
-import { connect } from '../../store/index'
-import { login } from '../../actions/auth'
+import { connect } from "../../store/index";
+import { login } from "../../actions/auth";
 
-const Login = ({ history, auth, login}) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+const Login = ({ history, auth, login }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     if (auth.isAuthenticated) {
-      history.push('/')
+      history.push("/");
     }
-  }, [auth])
+  }, [auth]);
 
   const onSubmit = (e) => {
-    e.preventDefault()
-    login({ email, password })
-  }
+    e.preventDefault();
+    login({ email, password });
+  };
 
   return (
     <div className="row mt-4">
@@ -39,7 +39,7 @@ const Login = ({ history, auth, login}) => {
                     type="email"
                     name="email"
                     value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     pattern=".{5,30}"
                     required
                   />
@@ -58,28 +58,30 @@ const Login = ({ history, auth, login}) => {
                     type="password"
                     name="password"
                     value={password}
-                    onChange={e => setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                     pattern=".{6,30}"
                     required
                   />
                 </div>
               </div>
               <div className="form-group">
-                <button type="submit" className="btn btn-dark btn-block">Login</button>
+                <button type="submit" className="btn btn-dark btn-block">
+                  Login
+                </button>
               </div>
             </form>
           </article>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 Login.propTypes = {
   login: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
-}
+  auth: PropTypes.object.isRequired,
+};
 
-const mapStateToProps = (state) => ({ auth: state.auth })
+const mapStateToProps = (state) => ({ auth: state.auth });
 
-export default connect(mapStateToProps, { login })(Login)
+export default connect(mapStateToProps, { login })(Login);

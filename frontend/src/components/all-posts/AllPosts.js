@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
-import { connect } from '../../store/index'
+import { connect } from "../../store/index";
 
-import PostForm from '../shared/PostForm'
-import Posts from '../shared/Posts'
+import PostForm from "../shared/PostForm";
+import Posts from "../shared/Posts";
 
 const AllPosts = ({ auth }) => (
   <div className="row mt-4">
@@ -13,14 +13,14 @@ const AllPosts = ({ auth }) => (
       <Posts queryParams={{}} />
     </div>
   </div>
-)
+);
 
 AllPosts.propTypes = {
-  auth: PropTypes.object.isRequired
-}
+  auth: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = (state) => ({
-  auth: state.auth
-})
+  auth: state.auth,
+});
 
-export default connect(mapStateToProps)(AllPosts)
+export default connect(mapStateToProps)(AllPosts);

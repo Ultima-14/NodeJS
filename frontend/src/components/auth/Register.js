@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
-import { connect } from '../../store/index'
-import { register } from '../../actions/auth'
+import { connect } from "../../store/index";
+import { register } from "../../actions/auth";
 
 const Register = ({ auth, history, register }) => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     if (auth.isAuthenticated) {
-      history.push('/')
+      history.push("/");
     }
-  }, [])
+  }, []);
 
   const onSubmit = (e) => {
-    e.preventDefault()
-    register({ name, email, password }, history)
-  }
+    e.preventDefault();
+    register({ name, email, password }, history);
+  };
 
   return (
     <div className="row mt-4">
@@ -40,7 +40,7 @@ const Register = ({ auth, history, register }) => {
                     type="text"
                     name="name"
                     value={name}
-                    onChange={e => setName(e.target.value)}
+                    onChange={(e) => setName(e.target.value)}
                     pattern=".{3,20}"
                     required
                   />
@@ -59,7 +59,7 @@ const Register = ({ auth, history, register }) => {
                     type="email"
                     name="email"
                     value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     pattern=".{5,30}"
                     required
                   />
@@ -78,27 +78,29 @@ const Register = ({ auth, history, register }) => {
                     type="password"
                     name="password"
                     value={password}
-                    onChange={e => setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                     pattern=".{6,30}"
                   />
                 </div>
               </div>
               <div className="form-group">
-                <button type="submit" className="btn btn-dark btn-block">Register</button>
+                <button type="submit" className="btn btn-dark btn-block">
+                  Register
+                </button>
               </div>
             </form>
           </article>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 Register.propTypes = {
   register: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
-}
+  auth: PropTypes.object.isRequired,
+};
 
-const mapStateToProps = (state) => ({ auth: state.auth })
+const mapStateToProps = (state) => ({ auth: state.auth });
 
-export default connect(mapStateToProps, { register })(Register)
+export default connect(mapStateToProps, { register })(Register);

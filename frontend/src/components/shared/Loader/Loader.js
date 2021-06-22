@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import './Loader.css'
+import "./Loader.css";
 
 export default () => (
   <div id="fountainG" className="mt-4">
@@ -13,4 +13,4 @@ export default () => (
     <div id="fountainG_7" className="fountainG"></div>
     <div id="fountainG_8" className="fountainG"></div>
   </div>
-)
+);

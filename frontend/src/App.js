@@ -1,20 +1,20 @@
-import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { Provider } from './store/index'
-import rootReducer from './reducers'
-import initialState from './store/initialState'
+import { Provider } from "./store/index";
+import rootReducer from "./reducers";
+import initialState from "./store/initialState";
 
-import PrivateRoute from './components/shared/PrivateRoute'
-import Header from './components/layout/Header'
-import Footer from './components/layout/Footer'
-import Login from './components/auth/Login'
-import Register from './components/auth/Register'
-import AllPosts from './components/all-posts/AllPosts'
-import SinglePost from './components/single-post/SinglePost'
-import UserProfile from './components/user-profile/UserProifle'
-import Feed from './components/feed/Feed'
-import NotFound from './components/not-found/NotFound'
+import PrivateRoute from "./components/shared/PrivateRoute";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import AllPosts from "./components/all-posts/AllPosts";
+import SinglePost from "./components/single-post/SinglePost";
+import UserProfile from "./components/user-profile/UserProifle";
+import Feed from "./components/feed/Feed";
+import NotFound from "./components/not-found/NotFound";
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
         </React.Fragment>
       </BrowserRouter>
     </Provider>
-  )
+  );
 }
 
-export default App
+export default App;

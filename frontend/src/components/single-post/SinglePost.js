@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 
-import { connect } from '../../store/index'
-import { UPDATE_POST } from '../../actions/types'
-import { getById as getPostById } from '../../actions/post'
+import { connect } from "../../store/index";
+import { UPDATE_POST } from "../../actions/types";
+import { getById as getPostById } from "../../actions/post";
 
-import Loader from '../shared/Loader'
-import Post from '../shared/Post'
-import Comment from './Comment'
-import CommentForm from './CommentForm'
+import Loader from "../shared/Loader";
+import Post from "../shared/Post";
+import Comment from "./Comment";
+import CommentForm from "./CommentForm";
 
 const SinglePost = ({ getPostById, match, post, auth, history }) => {
-  useEffect(() => getPostById(match.params.id, history), [])
+  useEffect(() => getPostById(match.params.id, history), []);
 
   return !post.isLoading && post.post !== null ? (
     <div className="row mt-5">
@@ -25,18 +25,20 @@ const SinglePost = ({ getPostById, match, post, auth, history }) => {
         </div>
       </div>
     </div>
-  ) : <Loader />
-}
+  ) : (
+    <Loader />
+  );
+};
 
 SinglePost.propTypes = {
   getPostById: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
-}
+  auth: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   post: state.post,
-  auth: state.auth
-})
+  auth: state.auth,
+});
 
-export default connect(mapStateToProps, { getPostById })(SinglePost)
+export default connect(mapStateToProps, { getPostById })(SinglePost);

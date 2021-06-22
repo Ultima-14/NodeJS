@@ -1,30 +1,27 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
-import { connect } from '../../../store/index'
-import { createLike, removeLike } from '../../../actions/post'
+import { connect } from "../../../store/index";
+import { createLike, removeLike } from "../../../actions/post";
 
 const Like = ({ auth, postId, likes, TYPE, removeLike, createLike }) => {
   const onLikeClick = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (auth.isAuthenticated) {
-      const existedLike = likes.find((l) => l.user === auth.user.id)
+      const existedLike = likes.find((l) => l.user === auth.user.id);
       if (existedLike) {
-        removeLike(postId, existedLike._id, TYPE)
+        removeLike(postId, existedLike._id, TYPE);
       } else {
-        createLike(postId, TYPE)
+        createLike(postId, TYPE);
       }
     }
-  }
+  };
   return (
-    <a
-      href="#" role="button"
-      className="card-link" onClick={onLikeClick}
-    >
+    <a href="#" role="button" className="card-link" onClick={onLikeClick}>
       <i className="fa fa-heart"></i> {likes.length}
     </a>
-  )
-}
+  );
+};
 
 Like.propTypes = {
   createLike: PropTypes.func.isRequired,
@@ -32,9 +29,9 @@ Like.propTypes = {
   auth: PropTypes.object.isRequired,
   postId: PropTypes.string.isRequired,
   likes: PropTypes.array.isRequired,
-  TYPE: PropTypes.string.isRequired
-}
+  TYPE: PropTypes.string.isRequired,
+};
 
-const mapStateToProps = (state) => ({ auth: state.auth })
+const mapStateToProps = (state) => ({ auth: state.auth });
 
-export default connect(mapStateToProps, { createLike, removeLike })(Like)
+export default connect(mapStateToProps, { createLike, removeLike })(Like);

@@ -1,16 +1,22 @@
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 
-import { connect } from '../../store/index'
-import { getUserById } from '../../actions/user'
-import Loader from '../shared/Loader'
-import PostForm from '../shared/PostForm'
-import Posts from '../shared/Posts'
-import ProfileImage from '../shared/ProfileImage'
-import Subscription from './Subscription'
+import { connect } from "../../store/index";
+import { getUserById } from "../../actions/user";
+import Loader from "../shared/Loader";
+import PostForm from "../shared/PostForm";
+import Posts from "../shared/Posts";
+import ProfileImage from "../shared/ProfileImage";
+import Subscription from "./Subscription";
 
-const UserProfile = ({ getUserById, match, history, user: { user, isLoading }, auth }) => {
-  useEffect(() => getUserById(match.params.id, history), [])
+const UserProfile = ({
+  getUserById,
+  match,
+  history,
+  user: { user, isLoading },
+  auth,
+}) => {
+  useEffect(() => getUserById(match.params.id, history), []);
 
   return !isLoading && user !== null ? (
     <React.Fragment>
@@ -46,18 +52,20 @@ const UserProfile = ({ getUserById, match, history, user: { user, isLoading }, a
         </div>
       </div>
     </React.Fragment>
-  ) : <Loader />
-}
+  ) : (
+    <Loader />
+  );
+};
 
 UserProfile.propTypes = {
   getUserById: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
-}
+  auth: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   user: state.user,
-  auth: state.auth
-})
+  auth: state.auth,
+});
 
-export default connect(mapStateToProps, { getUserById })(UserProfile)
+export default connect(mapStateToProps, { getUserById })(UserProfile);

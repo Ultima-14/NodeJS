@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER } from '../actions/types'
+import { SET_CURRENT_USER } from "../actions/types";
 
 export default (state, action) => {
   switch (action.type) {
@@ -6,9 +6,9 @@ export default (state, action) => {
       return {
         ...state,
         isAuthenticated: Object.keys(action.payload).length !== 0,
-        user: action.payload
-      }
+        user: action.payload,
+      };
     default:
-      return state
+      return state;
   }
-}
+};

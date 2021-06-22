@@ -1,8 +1,8 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
-import PropTypes from 'prop-types'
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
 
-import { connect } from '../../store/index'
+import { connect } from "../../store/index";
 
 const PrivateRoute = ({ component: Component, auth, ...rest }) => (
   <Route
@@ -15,10 +15,10 @@ const PrivateRoute = ({ component: Component, auth, ...rest }) => (
       )
     }
   />
-)
+);
 
-PrivateRoute.propTypes = { auth: PropTypes.object.isRequired }
+PrivateRoute.propTypes = { auth: PropTypes.object.isRequired };
 
-const mapStateToProps = (state) => ({ auth: state.auth })
+const mapStateToProps = (state) => ({ auth: state.auth });
 
-export default connect(mapStateToProps)(PrivateRoute)
+export default connect(mapStateToProps)(PrivateRoute);
