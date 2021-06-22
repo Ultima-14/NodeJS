@@ -79,7 +79,7 @@ const Header = ({ logout, auth: { isAuthenticated, user } }) => {
             {isAuthenticated && (
               <li className="nav-item">
                 <Link className="nav-link" to="/feed">
-                  <i className="fa fa-rss"></i>
+                  <i className="fa fa-tag"></i>
                   Feed
                 </Link>
               </li>
