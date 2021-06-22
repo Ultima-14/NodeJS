@@ -1,15 +1,16 @@
-description": "",
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "lint:frontend": "workdir С/node/frontend && yarn lint && yarn format:check",
-    "lint:backend": "workdir C/node/backend && yarn lint && yarn format:check"
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "lint:frontend": " npm run lint frontend && npm run lint:fix frontend",
     "lint:backend": "npm run lint backend && npm lint:fix backend",
-    "dev:server": "npm start --prefix backend",
-    "dev:client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd backend && npm start",
+    "dev:client": "cd frontend && npm start",
+    "start": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "test": "mocha"
   },
   "keywords": [],
